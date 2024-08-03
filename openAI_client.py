@@ -4,6 +4,8 @@ import json
 client = OpenAI()
 
 def parse_img_to_json(base64_image):
+    SYSTEM_PROMPT="you are an AI RE assistant.Your job is to extract specific information from real estate listing images"
+    MESSAGE_PROMPT="extract details from image in json:Furnished(Yes/No),Parking(Yes/No),Bedrooms(num),Asking Rent(num),price per square feet(num) If any missing or needs to be guessed return 'NA'"
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         response_format={"type": "json_object"},
@@ -13,7 +15,7 @@ def parse_img_to_json(base64_image):
             "content": [
                 {
                 "type": "text",
-                "text": "you are an AI RE assistant.Your job is to extract specific information from real estate listing images"
+                "text": SYSTEM_PROMPT
                 }
             ]
             },
@@ -22,7 +24,7 @@ def parse_img_to_json(base64_image):
             "content": [
                 {
                 "type": "text",
-                "text": "extract details from image in json:Furnished(Yes/No),Parking(Yes/No),Bedrooms(num),Asking Rent(num),price per square feet(num) If any missing or needs to be guessed return 'NA'"
+                "text": MESSAGE_PROMPT
                 },
                 {
                 "type": "image_url",
