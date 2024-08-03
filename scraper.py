@@ -1,3 +1,4 @@
+# scraper.py
 import asyncio
 from playwright.async_api import async_playwright
 from playwright_stealth import stealth_async
@@ -15,7 +16,7 @@ def transform_url(original_url):
     elif 'onthemarket' in original_url:
         new_url = f"https://www.onthemarket.com/details/{id_part}"
     else:
-        raise ValueError("Unsupported domain in the original URL")
+       new_url = original_url 
     
     return new_url
 
