@@ -15,7 +15,7 @@ class GoogleSheetsClient:
         self.creds = Credentials.from_service_account_file("google_sheets_creds.json", scopes=scopes)
         self.client = gspread.authorize(self.creds)
         print("Google Sheets client initialized")
-  
+
     def save_sheet_to_df(self, sheet_id):
         sheet = self.client.open_by_key(sheet_id)
         worksheet = sheet.get_worksheet(0)
