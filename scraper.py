@@ -27,7 +27,7 @@ async def take_full_page_screenshot(original_url, output_file='full_screenshot.p
         id_part = original_url.split('/')[-1]
         
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=False)  # Set headless=True to run headless
+            browser = await p.chromium.launch(headless=True)  # Set headless=True to run headless
             context = await browser.new_context(java_script_enabled=False)  # Disable JavaScript
             page = await context.new_page()
 
