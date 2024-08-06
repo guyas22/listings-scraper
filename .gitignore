@@ -1,8 +1,12 @@
 /old_files
-/scraperenv
+/scraper_env
 /downloaded_files
 /__pycache__
 /screenshots
 .DS_Store
 google_sheets_creds.json
 /uploads
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

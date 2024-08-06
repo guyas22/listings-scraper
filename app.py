@@ -1,11 +1,10 @@
-from flask import Flask, request, render_template, send_file
+from flask import Flask, request, render_template
 import asyncio
 import os
 import pandas as pd
 from scraper import take_full_page_screenshot
 from google_sheets_client import GoogleSheetsClient, DATABASE_SHEET_ID
 from df import update_row_from_json
-import base64
 
 app = Flask(__name__)
 sheets_client = GoogleSheetsClient()
@@ -33,12 +32,9 @@ async def process_csv(file_path):
         screenshot_path = os.path.join(screenshots_dir, f'screenshot_{index}.png')
         base64_img = await take_full_page_screenshot(original_url, screenshot_path)
         if base64_img:
-            print(f"Processed URL {index + 1}/{len(input_data)}: {original_url}")
             parsed_json = parse_img_to_json(base64_img)
             updated_row = update_row_from_json(row, parsed_json)
             db_data = pd.concat([db_data, updated_row.to_frame().T], ignore_index=True)
-        else:
-            print(f"Skipped URL {index + 1}/{len(input_data)}: {original_url}")
 
     sheets_client.upload_df_to_sheet(db_data, DATABASE_SHEET_ID)
 
