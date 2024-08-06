@@ -71,8 +71,8 @@ async def csv_run_dev():
         original_url = row['URL']
         screenshot_path = os.path.join(screenshots_dir, f'screenshot_{index}.png')
        
-        # # Take a full-page screenshot of the webpage
-        # base64_img = await take_full_page_screenshot(original_url, screenshot_path)
+        # Take a full-page screenshot of the webpage
+        base64_img = await take_full_page_screenshot(original_url, screenshot_path)
         # if base64_img:
         #     print(f"Processed URL {index + 1}/{len(data)}: {original_url}")
         #     parsed_json = parse_img_to_json(base64_img)

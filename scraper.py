@@ -3,6 +3,7 @@ import asyncio
 from playwright.async_api import async_playwright
 from playwright_stealth import stealth_async
 import base64
+import time
 
 def transform_url(original_url):
     # Extract the ID from the original URL
@@ -27,8 +28,8 @@ async def take_full_page_screenshot(original_url, output_file='full_screenshot.p
         id_part = original_url.split('/')[-1]
         
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)  # Set headless=True to run headless
-            context = await browser.new_context(java_script_enabled=False)  # Disable JavaScript
+            browser = await p.chromium.launch(headless=False)  # Set headless=True to run headless
+            context = await browser.new_context(java_script_enabled=True )  # Disable JavaScript
             page = await context.new_page()
 
             # Apply stealth plugin

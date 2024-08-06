@@ -1,13 +1,4 @@
 Address,Postcode,Agent,Type,Bedrooms,Asking rent (pm),Days,Let agreed,Lat,Lng,URL
-"Rickyard Close, Oxford OX1",OX1 2DD,Chancellors,Terraced house,5,2751,69,0,51.754,-1.268,https://propertydata.co.uk/outbound/zoopla/60909575
-"Norham Gardens, Oxford OX2",OX2 6QB,Finders Keepers,Detached house,5,5000,18,1,51.763283,-1.258041,https://propertydata.co.uk/outbound/zoopla/66340788
-"Jericho, Oxford OX2",OX2 6AQ,Chancellors,Terraced house,5,5499,16,1,51.76128,-1.271064,https://propertydata.co.uk/outbound/zoopla/56878808
-"St. Bernard`s Road, Walton Manor",OX2 6EN,"JCP Estate Agents, North Oxford",Terraced house,5,5499,7,0,51.762006,-1.265408,https://propertydata.co.uk/outbound/rightmove/148191020
-"Osney Lane, Botley, Oxford OX1",OX1 9EB,Martin & Co,Terraced house,4,2799,47,0,51.750301,-1.266929,https://propertydata.co.uk/outbound/zoopla/60529823
-"Rewley Road, Oxford OX1",OX1 2RQ,Finders Keepers,Semi-detached house,4,2899,18,0,51.756229,-1.270283,https://propertydata.co.uk/outbound/zoopla/67183627
-"St. John Street, Oxford OX1",OX1 2LL,North Oxford Property Services,Flat,4,3198,18,0,51.75621,-1.261994,https://propertydata.co.uk/outbound/zoopla/67026100
-"Thames Street, Oxford OX1",OX1 1TS,North Oxford Property Services,Detached house,4,3198,18,0,51.748535,-1.263168,https://propertydata.co.uk/outbound/zoopla/66537641
-"Jericho St, Oxford OX2",OX2 6BU,OpenRent,Semi-detached house,4,3198,10,0,51.759306,-1.267828,https://propertydata.co.uk/outbound/zoopla/67371999
 "Cranham Street, Oxford OX2",OX2 6DD,North Oxford Property Services,Detached house,4,3198,18,0,51.759338,-1.268789,https://propertydata.co.uk/outbound/zoopla/65835369
 "Rickyard Close, Summertown OX1",OX1 2DD,Chancellors,Terraced house,4,3250,10,0,51.754,-1.268,https://propertydata.co.uk/outbound/zoopla/54718276
 "Great Clarendon Street, Oxford OX2",OX2 6AT,Hamptons,Flat,4,3384,18,0,51.758269,-1.267353,https://propertydata.co.uk/outbound/zoopla/58595134
@@ -18,70 +9,3 @@ Richmond Road Oxford OX1,OX1 2JJ,"Hamptons, Oxford",Detached house,4,4974,62,1,5
 "Venneit Close, Oxford OX1",OX1 1HZ,North Oxford Property Services,Flat,3,2249,18,0,51.757633,-1.272567,https://propertydata.co.uk/outbound/zoopla/66540809
 "Stable Close, Oxford OX1",OX1 2DD,Chancellors,Semi-detached house,3,2500,8,0,51.754,-1.268,https://propertydata.co.uk/outbound/zoopla/61962558
 Jean Marguerite Court,OX1 1UD,"North Oxford Property Service, Oxford",Flat,3,2548,226,0,51.749385,-1.262631,https://propertydata.co.uk/outbound/rightmove/140890439
-"Walton Street, Central Oxford",OX1 2HD,"JCP Estate Agents, North Oxford",Flat,3,2799,9,0,51.75586,-1.26306,https://propertydata.co.uk/outbound/rightmove/148100387
-"St. Michaels Street, Oxford OX1",OX1 3JB,Chancellors,Flat,3,2998,18,1,51.753,-1.26,https://propertydata.co.uk/outbound/zoopla/67072507
-"Foundry House, Oxford",OX2 6AQ,"Finders Keepers, North Oxford",Flat,3,3497,60,1,51.76104,-1.27071,https://propertydata.co.uk/outbound/rightmove/146198879
-"Observatory Street, Oxford, Oxfordshire, OX2",OX2 6HU,"Savills Lettings, Oxford",Flat,3,3952,34,0,51.76208,-1.26389,https://propertydata.co.uk/outbound/rightmove/147104177
-"The Royal Blenheim, Oxford OX1",OX1 1PT,Taylors Estate Agents,Flat,2,1499,4,0,51.750101,-1.259532,https://propertydata.co.uk/outbound/zoopla/56266419
-"Gloucester Green, Oxford OX1",OX1 2DF,Peers & Hilton,Flat,2,1599,6,0,51.754386,-1.261751,https://propertydata.co.uk/outbound/zoopla/67392217
-"High Street, Oxford OX1",OX1 4DB,Oxford Heritage Property Management,Flat,2,1699,18,0,51.752123,-1.256848,https://propertydata.co.uk/outbound/zoopla/67284350
-"St. Thomas Street, Oxford OX1",OX1 1NJ,Martin & Co,Flat,2,1699,6,1,51.751201,-1.266909,https://propertydata.co.uk/outbound/zoopla/46742779
-"River Court, Trinity Street, OX1 1TQ",OX1 1TQ,"Scottfraser, Headington",Flat,2,1699,3,0,51.74696,-1.26196,https://propertydata.co.uk/outbound/rightmove/148323974
-"Castle Mews, St Thomas&#x27; Street",OX1 1JR,"Martin &amp; Co, Oxford",Flat,2,1699,7,1,51.75185,-1.26666,https://propertydata.co.uk/outbound/rightmove/148178921
-"Rowland Hill Court, Osney Lane, Oxford, Oxfordshire OX1",OX1 1LF,Carter Jonas,Flat,2,1751,18,1,51.751245,-1.268207,https://propertydata.co.uk/outbound/zoopla/54045130
-"Rewley Road, Oxford OX1",OX1 2RQ,Finders Keepers,Flat,2,1751,4,0,51.756229,-1.270283,https://propertydata.co.uk/outbound/zoopla/67428506
-"Cardigan Street, Oxford OX2",OX2 6BW,Finders Keepers,Flat,2,1850,2,0,51.759747,-1.266271,https://propertydata.co.uk/outbound/zoopla/67440404
-"Rewley Road, Oxford OX1",OX1 1HS,Martin & Co,Flat,2,1850,16,1,51.753898,-1.26977,https://propertydata.co.uk/outbound/zoopla/66999873
-"Rewley Road, Oxford",OX1 2RA,"Martin &amp; Co, Oxford",Flat,2,1850,17,1,51.75465,-1.26879,https://propertydata.co.uk/outbound/rightmove/146304953
-"Osney Lane, Central Oxford",OX1 1LF,"Finders Keepers, Central Oxford",Flat,2,1850,60,1,51.75103,-1.26853,https://propertydata.co.uk/outbound/rightmove/146261552
-"Walton Crescent, Oxford OX1",OX1 2JQ,Finders Keepers,Flat,2,1898,6,1,51.757587,-1.265538,https://propertydata.co.uk/outbound/zoopla/67406965
-"Rowland Hill Court, Osney Lane, Oxford OX1",OX1 1LE,Breckon & Breckon,Flat,2,1898,18,0,51.75132,-1.267507,https://propertydata.co.uk/outbound/zoopla/61087920
-"Great Clarendon Street, Oxford",OX2 6AT,"Finders Keepers, North Oxford",Terraced house,2,1950,40,1,51.75824,-1.26743,https://propertydata.co.uk/outbound/rightmove/146896715
-"Mill Street, Oxford, Oxfordshire, OX2",OX2 0AJ,"LPM residential, Cowley",Terraced house,2,1950,40,0,51.751621,-1.270863,https://propertydata.co.uk/outbound/rightmove/146250575
-"St. Thomas Street, Oxford OX1",OX1 1JA,Finders Keepers,Flat,2,2002,10,1,51.752129,-1.265656,https://propertydata.co.uk/outbound/zoopla/67375242
-"Wellington Street, Oxford OX2",OX2 6BB,Finders Keepers,Terraced house,2,2002,2,0,51.757572,-1.267625,https://propertydata.co.uk/outbound/zoopla/67440482
-"Walton Crescent, Oxford",OX1 2JQ,"Finders Keepers, North Oxford",Flat,2,2002,23,1,51.7575,-1.26555,https://propertydata.co.uk/outbound/rightmove/147559133
-"St. Thomas Street, Oxford OX1",OX1 1JE,Finders Keepers,Flat,2,2076,10,0,51.751358,-1.264654,https://propertydata.co.uk/outbound/zoopla/67370818
-"Fisher Row, Oxford OX1",OX1 1HT,Finders Keepers,Flat,2,2102,4,0,51.752178,-1.264974,https://propertydata.co.uk/outbound/zoopla/67428467
-"Hart Street, Oxford OX2",OX2 6BN,Finders Keepers,Terraced house,2,2102,16,1,51.758675,-1.267042,https://propertydata.co.uk/outbound/zoopla/67288381
-"Mill Street, Oxford, Oxfordshire OX2",OX2 0AR,Bright Properties (Oxhold Limited TA),Terraced house,2,2102,10,1,51.752048,-1.271747,https://propertydata.co.uk/outbound/zoopla/67364209
-"St Thomas Street, OX1",OX1 1JW,"Penny &amp; Sinclair, Oxford",Flat,2,2102,11,0,51.751202,-1.26546,https://propertydata.co.uk/outbound/rightmove/148034060
-"St Thomas Mews, Oxford",OX1 1JA,"Finders Keepers, North Oxford",Flat,2,2102,38,1,51.75211,-1.26579,https://propertydata.co.uk/outbound/rightmove/146985020
-"The Stream Edge, Fisher Row, Oxford OX1",OX1 1HT,Breckon & Breckon,Flat,2,2149,4,0,51.752186,-1.264987,https://propertydata.co.uk/outbound/zoopla/61389765
-Oxford City Centre,OX1 1JE,"Martin &amp; Co, Oxford",Flat,2,2149,34,1,51.751202,-1.26501,https://propertydata.co.uk/outbound/rightmove/147149456
-"Trinity Street, Central Oxford",OX1 1TY,"JCP Estate Agents, North Oxford",Semi-detached house,2,2201,5,0,51.74805,-1.263621,https://propertydata.co.uk/outbound/rightmove/148251101
-Oxford City Centre,OX1 2RB,"Martin &amp; Co, Oxford",Flat,2,2218,27,1,51.75501,-1.26878,https://propertydata.co.uk/outbound/rightmove/147416168
-"Oxford Castle, City Centre OX1",OX1 1PE,Chancellors,Flat,2,2249,33,0,51.75,-1.261,https://propertydata.co.uk/outbound/zoopla/65521952
-"Juxon Street, Oxford",OX2 6DL,"Lucy Properties, Oxford",Terraced house,2,2249,17,0,51.76022,-1.26899,https://propertydata.co.uk/outbound/rightmove/145905596
-"Great Clarendon Street, Jericho",OX2 6AX,"JCP Estate Agents, North Oxford",Semi-detached house,2,2301,7,0,51.757354,-1.269135,https://propertydata.co.uk/outbound/rightmove/148192091
-"The Clarendon Centre, Cornmarket Street, Oxford OX1",OX1 4DF,Finders Keepers,Flat,2,2400,6,0,51.752079,-1.256226,https://propertydata.co.uk/outbound/zoopla/67401923
-"New Road, Oxford OX1",OX1 1LJ,Martin & Co,Flat,2,2500,2,0,51.751098,-1.26196,https://propertydata.co.uk/outbound/zoopla/55294243
-"St Thomas Street, Oxford OX1",OX1 1JR,Penny & Sinclair,Flat,2,2652,58,0,51.751961,-1.266667,https://propertydata.co.uk/outbound/zoopla/66968089
-"Mill Stream House, Norfolk Street, Oxford OX1",OX1 1EB,Savills,Flat,2,2799,18,1,51.749313,-1.263947,https://propertydata.co.uk/outbound/zoopla/61447916
-"Observatory Street, Oxford, Oxfordshire, OX2",OX2 6HU,"Savills Lettings, Oxford",Flat,2,3250,34,0,51.76208,-1.26389,https://propertydata.co.uk/outbound/rightmove/147102647
-"Littlegate Street, Oxford OX1",OX1 1AN,Finders Keepers,Flat,1,1300,16,1,51.749306,-1.259878,https://propertydata.co.uk/outbound/zoopla/67316775
-"Gloucester Green, Oxford OX1",OX1 2BU,Finders Keepers,Flat,1,1300,8,1,51.754074,-1.262249,https://propertydata.co.uk/outbound/zoopla/67380871
-"St. Bernards Road, Oxford OX2",OX2 6EY,Nicholas Jones Residential,Flat,1,1452,18,0,51.76238,-1.263815,https://propertydata.co.uk/outbound/zoopla/56911795
-"George Street, Oxford OX1",OX1 2BJ,Finders Keepers,Flat,1,1499,13,1,51.753845,-1.26105,https://propertydata.co.uk/outbound/zoopla/67338668
-"The Chilterns, Gloucester Green, Oxford OX1",OX1 2DF,Carter Jonas,Flat,1,1595,6,0,51.754386,-1.261751,https://propertydata.co.uk/outbound/zoopla/64821841
-"Albion Place, Central Oxford, OX1",OX1 1SG,"Scottfraser, Summertown",Flat,1,1599,25,0,51.74937,-1.25931,https://propertydata.co.uk/outbound/rightmove/147431420
-"St Thomas Mews, Oxford",OX1 1JA,"Finders Keepers, North Oxford",Flat,1,1599,42,1,51.75211,-1.26579,https://propertydata.co.uk/outbound/rightmove/146843744
-"New Road, Oxford OX1",OX1 1AY,Martin & Co,Flat,1,1651,18,1,51.751098,-1.262159,https://propertydata.co.uk/outbound/zoopla/47677369
-"Juxon Street,Oxford,OX2",OX2 6DR,"Lucy Properties, Oxford",Flat,1,1677,19,0,51.75956,-1.27054,https://propertydata.co.uk/outbound/rightmove/147725240
-"St. Thomas Street, Oxford OX1",OX1 1JA,Finders Keepers,Flat,1,1699,18,1,51.752129,-1.265656,https://propertydata.co.uk/outbound/zoopla/67230655
-"Osney Mill, Mill Street",OX2 0AN,"Finders Keepers, Central Oxford",Flat,1,1699,62,1,51.74945,-1.27148,https://propertydata.co.uk/outbound/rightmove/146129336
-"St. Thomas Street, Oxford OX1",OX1 1JP,North Oxford Property Services,Flat,1,1751,6,0,51.751924,-1.266369,https://propertydata.co.uk/outbound/zoopla/67404587
-"New Inn Hall Street, 52 New Inn Hall Street, Oxford",OX1 3HZ,"Hutton Parker, Oxford",Flat,1,1751,13,0,51.752872,-1.259137,https://propertydata.co.uk/outbound/rightmove/147966650
-"Empress Court, Oxford, Oxfordshire OX1",OX1 1HG,Breckon & Breckon,Flat,1,1777,6,1,51.750835,-1.265023,https://propertydata.co.uk/outbound/zoopla/65659193
-"Woodin's Way, Oxford OX1",OX1 1HG,Martin & Co,Flat,1,1898,18,1,51.7509,-1.26468,https://propertydata.co.uk/outbound/zoopla/51880992
-"Hythe Bridge Street, Oxford OX1",OX1 1HH,North Oxford Property Services,Flat,1,1898,6,0,51.753379,-1.265296,https://propertydata.co.uk/outbound/zoopla/67404590
-"High Street, Oxford",OX1 4DF,"Finders Keepers, North Oxford",Flat,1,1898,11,1,51.75205,-1.25633,https://propertydata.co.uk/outbound/rightmove/148051865
-Hythe Bridge Street,OX1 2EP,NOPS Property Letting - Oxford,Flat,1,1898,6,0,51.75346,-1.26607,https://propertydata.co.uk/outbound/otm/14921781
-"Cranham Street, Oxford OX2",OX2 6BY,Finders Keepers,Flat,1,1950,16,1,51.759872,-1.267689,https://propertydata.co.uk/outbound/zoopla/67317423
-"Walton Street, Jericho",OX2 6AJ,"JCP Estate Agents, North Oxford",Flat,1,1950,11,0,51.7606,-1.2666,https://propertydata.co.uk/outbound/rightmove/148018874
-"Mill Stream House, Norfolk Street, Oxford OX1",OX1 1EB,Savills,Flat,1,2102,13,1,51.749459,-1.263827,https://propertydata.co.uk/outbound/zoopla/67332356
-"Observatory Street, Oxford, Oxfordshire, OX2",OX2 6HU,"Savills Lettings, Oxford",Flat,1,2500,34,0,51.76208,-1.26389,https://propertydata.co.uk/outbound/rightmove/147104801
-"Thames Wharf North, 4 Roger Dudman Way, Oxford, Oxfordshire, OX1",OX1 1AG,"LPM residential, Cowley",Flat,0,849,6,0,51.756836,-1.272532,https://propertydata.co.uk/outbound/rightmove/86804532
-"Room 2, Thames Wharf North, 4 Roger Dudman Way, Oxford, Oxfordshire, OX1",OX1 1AG,"LPM residential, Cowley",Flat,0,1148,3,0,51.75683,-1.27252,https://propertydata.co.uk/outbound/rightmove/146860598
-"The Royal Blenheim, Oxford OX1",OX1 1PT,Taylors Estate Agents,Flat,0,1248,13,0,51.750101,-1.259532,https://propertydata.co.uk/outbound/zoopla/50608330
-"Trinity Street, Oxford OX1",OX1 1TQ,Finders Keepers,Flat,0,1300,18,0,51.747032,-1.261929,https://propertydata.co.uk/outbound/zoopla/67104362
