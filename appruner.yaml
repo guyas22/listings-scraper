@@ -6,6 +6,6 @@ build:
   - yum install -y pycairo
   - pip install -r requirements.txt
 run:
- command: python app.py
+ command: gunicorn app:app 
  network:
    port: 8000
