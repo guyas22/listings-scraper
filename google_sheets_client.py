@@ -18,14 +18,37 @@ class GoogleSheetsClient:
             if os.getenv("STAGE") == "local":
                 self.logger.info("Initializing Google Sheets client in local stage.")
                 private_key_id = os.getenv("PRIVATE_KEY_ID")
-                private_key = os.getenv("PRIVATE_KEY").replace('\\n', '\n')
+                private_key = os.getenv("PRIVATE_KEY")
+                if not private_key or not private_key_id:
+                    raise ValueError("PRIVATE_KEY_ID or PRIVATE_KEY environment variables are missing.")
+                private_key = private_key.replace('\\n', '\n')  # Ensure proper newline formatting
             elif os.getenv("STAGE") == "prod":
                 self.logger.info("Initializing Google Sheets client in production stage.")
                 secret_string = os.getenv("MY_SECRET")
-                secrets = json.loads(secret_string)
-                logger.info(f"Secrets: {secrets}")
-                private_key_id = secrets['PRIVATE_KEY_ID']
-                private_key = secrets['PRIVATE_KEY']
+                if not secret_string:
+                    raise ValueError("MY_SECRET environment variable is missing.")
+                
+                try:
+                    secrets = json.loads(secret_string)
+                    self.logger.info(f"Secrets fetched: {secrets}")
+                    
+                    private_key_id = secrets.get('PRIVATE_KEY_ID')
+                    private_key = secrets.get('PRIVATE_KEY')
+
+                    if not private_key or not private_key_id:
+                        raise KeyError("PRIVATE_KEY_ID or PRIVATE_KEY is missing in MY_SECRET.")
+                    
+                    logger.info(f"Private key ID: {private_key_id}")
+                    logger.info(f"Private key: {private_key}")
+                    # Replace literal '\n' in the private key with actual newlines
+                    private_key = private_key.replace(' ', '').replace('\n', '\n').replace('-----BEGINPRIVATEKEY-----', '-----BEGIN PRIVATE KEY-----\n').replace('-----ENDPRIVATEKEY-----', '\n-----END PRIVATE KEY-----')
+                    logger.info(f"-----------\n after replace: {private_key}")
+                except json.JSONDecodeError as e:
+                    self.logger.error(f"Failed to parse secrets from MY_SECRET: {e}")
+                    raise
+                except KeyError as e:
+                    self.logger.error(f"KeyError: {e}")
+                    raise
             else:
                 raise ValueError("Unknown STAGE environment variable. It must be either 'local' or 'prod'.")
 
@@ -52,12 +75,6 @@ class GoogleSheetsClient:
             self.client = gspread.authorize(self.creds)
             self.logger.info("Google Sheets client initialized successfully")
 
-        except json.JSONDecodeError as e:
-            self.logger.error(f"Failed to parse secrets from MY_SECRET: {e}")
-            raise
-        except KeyError as e:
-            self.logger.error(f"Missing expected key in secrets or environment: {e}")
-            raise
         except Exception as e:
             self.logger.error(f"Failed to initialize Google Sheets Client: {e}")
             raise
