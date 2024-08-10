@@ -46,11 +46,20 @@ def upload_file():
     if sheets_client_error or openai_client_error:
         return redirect(url_for('error_page'))
 
+    # Ensure the uploads directory exists
+    uploads_dir = 'uploads'
+    if not os.path.exists(uploads_dir):
+        os.makedirs(uploads_dir)
+
+    # Save the uploaded file
     file = request.files['file']
-    file_path = os.path.join('uploads', file.filename)
+    file_path = os.path.join(uploads_dir, file.filename)
     file.save(file_path)
+
+    # Process the file
     asyncio.run(process_csv(file_path))
     return 'File uploaded and processed successfully.'
+
 
 @app.route('/error')
 def error_page():

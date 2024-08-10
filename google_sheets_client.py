@@ -30,19 +30,13 @@ class GoogleSheetsClient:
                 
                 try:
                     secrets = json.loads(secret_string)
-                    self.logger.info(f"Secrets fetched: {secrets}")
-                    
                     private_key_id = secrets.get('PRIVATE_KEY_ID')
                     private_key = secrets.get('PRIVATE_KEY')
 
                     if not private_key or not private_key_id:
                         raise KeyError("PRIVATE_KEY_ID or PRIVATE_KEY is missing in MY_SECRET.")
-                    
-                    logger.info(f"Private key ID: {private_key_id}")
-                    logger.info(f"Private key: {private_key}")
                     # Replace literal '\n' in the private key with actual newlines
                     private_key = private_key.replace(' ', '').replace('\n', '\n').replace('-----BEGINPRIVATEKEY-----', '-----BEGIN PRIVATE KEY-----\n').replace('-----ENDPRIVATEKEY-----', '\n-----END PRIVATE KEY-----')
-                    logger.info(f"-----------\n after replace: {private_key}")
                 except json.JSONDecodeError as e:
                     self.logger.error(f"Failed to parse secrets from MY_SECRET: {e}")
                     raise
