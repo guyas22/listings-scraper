@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 import asyncio
 import os
 import pandas as pd
@@ -10,32 +10,48 @@ from openAI_client import OpenAIClient
 app = Flask(__name__)
 
 # Initialize clients with error handling
+sheets_client_error = False
+openai_client_error = False
+
 try:
     sheets_client = GoogleSheetsClient()
 except Exception as e:
     sheets_client = None
+    sheets_client_error = True
     print(f"Failed to initialize Google Sheets Client: {e}")
 
 try:
     openai_client = OpenAIClient()
 except Exception as e:
     openai_client = None
+    openai_client_error = True
     print(f"Failed to initialize OpenAI Client: {e}")
 
 @app.route('/')
 def index():
+    if sheets_client_error or openai_client_error:
+        return redirect(url_for('error_page'))
     return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    if not sheets_client or not openai_client:
-        return 'Error: Unable to process the request due to initialization failure of external clients.', 500
+    if sheets_client_error or openai_client_error:
+        return redirect(url_for('error_page'))
 
     file = request.files['file']
     file_path = os.path.join('uploads', file.filename)
     file.save(file_path)
     asyncio.run(process_csv(file_path))
     return 'File uploaded and processed successfully.'
+
+@app.route('/error')
+def error_page():
+    error_messages = []
+    if sheets_client_error:
+        error_messages.append("Google Sheets Client failed to initialize.")
+    if openai_client_error:
+        error_messages.append("OpenAI Client failed to initialize.")
+    return render_template('error.html', errors=error_messages)
 
 async def process_csv(file_path):
     input_data = pd.read_csv(file_path)

@@ -1,12 +1,27 @@
 from openai import OpenAI
 import json
 import numpy as np
+import os
 
 class OpenAIClient:
     def __init__(self):
-        self.client = OpenAI()
-        print("OpenAI client initialized")
+        try:
+            secret_string = os.getenv("MY_SECRET")
+            secrets = json.loads(secret_string)
+            openai_api_key = secrets['OPENAI_API_KEY']
+            self.client = OpenAI(api_key=openai_api_key)
+            print("OpenAI client initialized")
+        except Exception as e:
+            print(f"Failed to initialize OpenAI client: {e}")
+            print("trying to initialize with OpenAI API key")
+            try:
+                self.client = OpenAI(api_key = os.getenv("OPENAI_API_KEY"))
+                print("OpenAI client initialized")
+            except Exception as e:
+                print("Failed to initialize OpenAI client")
+                return None
 
+        
     def parse_img_to_json(self, base64_image):
         SYSTEM_PROMPT = "You are an AI RE assistant. Your job is to extract specific information from real estate listing images."
         MESSAGE_PROMPT = "Extract details from image in JSON (strict names): Furnished(Yes/No), Parking(Yes/No), price per square feet(INT). If any missing or needs to be guessed, return 'NA'."

@@ -6,13 +6,9 @@ build:
     - yum install -y pycairo
     - pip install -r requirements.txt
 run:
-  command: gunicorn app:app 
+  command: gunicorn --bind 0.0.0.0:8000 app:app 
   network:
     port: 8000
   secrets:
-    - name: OPENAI_API_KEY
-      value-from: arn:aws:secretsmanager:us-east-1:590183960221:secret:prod/secrets-LCPvxt:OPENAI_API_KEY
-    - name: PRIVATE_KEY
-      value-from: arn:aws:secretsmanager:us-east-1:590183960221:secret:prod/secrets-LCPvxt:PRIVATE_KEY
-    - name: PRIVATE_KEY_ID
-      value-from: arn:aws:secretsmanager:us-east-1:590183960221:secret:prod/secrets-LCPvxt:PRIVATE_KEY_ID
+    - name: MY_SECRET
+      value-from: arn:aws:secretsmanager:us-east-1:590183960221:secret:prod/secrets-LCPvxt
