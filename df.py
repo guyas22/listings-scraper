@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 def add_row_from_json(dataframe: pd.DataFrame, json_data: dict) -> pd.DataFrame:
     """
@@ -54,3 +55,11 @@ def update_row_from_json(row: pd.Series, json_data: dict) -> pd.Series:
     
     return row
 
+
+def clean_dataframe(df):
+    # Replace infinite values with NaN
+    df.replace([np.inf, -np.inf], np.nan, inplace=True)
+    # Fill NaN values with a specific value, or drop them
+    df.fillna(0, inplace=True)  # You can also use df.dropna() to drop rows with NaN values
+
+    return df

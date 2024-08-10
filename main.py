@@ -40,19 +40,12 @@ async def single_run():
     base64_img = await take_full_page_screenshot(url, screenshot_path)
     if base64_img:
         print(f"Screenshot saved to {screenshot_path}")
+        parse_img_to_json(base64_img)
     else:
         print(f"Failed to take a screenshot of {url}")
-    parse_img_to_json(base64_img)
-    # mock_json = {
-    #     "Furnished": "Yes",
-    #     "Parking": "Yes",
-    #     "Bedrooms": 2,
-    #     "Asking Rent": 1500,
-    #     "Price per square feet": 10
-    # }
-    # # Add the extracted data to the Google Sheet
-    # sheets_client = GoogleSheetsClient()
-    # sheets_client.add_data_to_sheet(mock_json)
+    
+    sheets_client = GoogleSheetsClient()
+    sheets_client.add_data_to_sheet(mock_json)
     
 
 async def csv_run_dev():

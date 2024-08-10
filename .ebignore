@@ -1,0 +1,8 @@
+/old_files
+/scraper_env
+/downloaded_files
+/__pycache__
+/screenshots
+.DS_Store
+google_sheets_creds.json
+/uploads
