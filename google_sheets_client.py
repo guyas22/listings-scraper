@@ -23,6 +23,7 @@ class GoogleSheetsClient:
                 self.logger.info("Initializing Google Sheets client in production stage.")
                 secret_string = os.getenv("MY_SECRET")
                 secrets = json.loads(secret_string)
+                logger.info(f"Secrets: {secrets}")
                 private_key_id = secrets['PRIVATE_KEY_ID']
                 private_key = secrets['PRIVATE_KEY']
             else:
