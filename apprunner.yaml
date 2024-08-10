@@ -6,9 +6,12 @@ build:
     - yum install -y pycairo
     - pip install -r requirements.txt
 run:
-  command: gunicorn --bind 0.0.0.0:8000 app:app 
+  command: gunicorn --bind 0.0.0.0:8000 app:app --timeout 120
   network:
     port: 8000
+  env:
+    - name: STAGE
+      value: prod
   secrets:
     - name: MY_SECRET
       value-from: arn:aws:secretsmanager:us-east-1:590183960221:secret:prod/secrets-LCPvxt
