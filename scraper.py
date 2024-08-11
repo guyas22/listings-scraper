@@ -1,4 +1,3 @@
-# scraper.py
 import asyncio
 from playwright.async_api import async_playwright
 from playwright_stealth import stealth_async
@@ -25,20 +24,19 @@ class Scraper:
         
         return new_url
 
-    async def take_full_page_screenshot(self, original_url, output_file='full_screenshot.png'):
+    async def take_full_page_screenshot(self, original_url, output_file='full_screenshot.png', headless=True):
         browser = None
         try:
             transformed_url = self.transform_url(original_url)
             id_part = original_url.split('/')[-1]
             
             async with async_playwright() as p:
-                browser = await p.chromium.launch(headless=False)  # Set headless=True to run headless
-                context = await browser.new_context(java_script_enabled=True)  # Disable JavaScript
+                browser = await p.chromium.launch(headless=headless)
+                context = await browser.new_context(java_script_enabled=True)
                 page = await context.new_page()
 
                 # Apply stealth plugin
                 await stealth_async(page)
-                # Navigate to the page
                 await page.goto(transformed_url)
 
                 # Check if the ID is present in the URL

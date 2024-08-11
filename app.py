@@ -56,10 +56,12 @@ def upload_file():
     file_path = os.path.join(uploads_dir, file.filename)
     file.save(file_path)
 
-    # Process the file
-    asyncio.run(process_csv(file_path))
-    return 'File uploaded and processed successfully.'
+    # Determine if headless mode should be enabled
+    headless = request.form.get('headless') == 'true'
 
+    # Process the file
+    asyncio.run(process_csv(file_path, headless))
+    return 'File uploaded and processed successfully.'
 
 @app.route('/error')
 def error_page():
@@ -70,7 +72,7 @@ def error_page():
         error_messages.append("OpenAI Client failed to initialize.")
     return render_template('error.html', errors=error_messages)
 
-async def process_csv(file_path):
+async def process_csv(file_path, headless=True):
     input_data = pd.read_csv(file_path)
 
     if not sheets_client:
@@ -85,7 +87,7 @@ async def process_csv(file_path):
     for index, row in input_data.iterrows():
         original_url = row['URL']
         screenshot_path = os.path.join(screenshots_dir, f'screenshot_{index}.png')
-        base64_img = await scraper.take_full_page_screenshot(original_url, screenshot_path)
+        base64_img = await scraper.take_full_page_screenshot(original_url, screenshot_path, headless=headless)
         if base64_img and openai_client:
             try:
                 parsed_json = openai_client.parse_img_to_json(base64_img)
