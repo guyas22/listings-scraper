@@ -4,9 +4,6 @@ build:
   commands:
     build:
     - yum install -y gcc gcc-c++ make libgcc glibc
-    - yum install -y epel-release
-    - yum install -y libX11 libXcomposite libXcursor libXdamage libXext libXi libXtst libgdk-pixbuf2.0-0 libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 libxkbcommon-x11-0 libgbm1 libgtk-3-0 libnss3 libxss1
-    - curl -sL https://rpm.nodesource.com/setup_16.x | bash -
     - yum install -y nodejs
     - pip install -r requirements.txt
 run:
