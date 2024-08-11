@@ -3,15 +3,11 @@ runtime: python3
 build:
   commands:
     build:
-    # Update and install necessary packages including glibc and playwright dependencies
-    - yum update -y
     - yum install -y gcc gcc-c++ make libgcc glibc
-    - yum install -y amazon-linux-extras
-    - amazon-linux-extras install epel
-    - yum install -y libstdc++-devel
+    - yum install -y epel-release
+    - yum install -y libX11 libXcomposite libXcursor libXdamage libXext libXi libXtst libgdk-pixbuf2.0-0 libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 libxkbcommon-x11-0 libgbm1 libgtk-3-0 libnss3 libxss1
     - curl -sL https://rpm.nodesource.com/setup_16.x | bash -
     - yum install -y nodejs
-    - yum install -y libX11 libXcomposite libXcursor libXdamage libXext libXi libXtst libgdk-pixbuf2.0-0 libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 libxkbcommon-x11-0 libgbm1 libgtk-3-0 libnss3 libxss1
     - pip install -r requirements.txt
 run:
   command: gunicorn --bind 0.0.0.0:8000 app:app --timeout 120
