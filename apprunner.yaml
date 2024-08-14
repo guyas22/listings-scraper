@@ -2,14 +2,11 @@ version: 1.0
 runtime: python3
 build:
   commands:
-    pre-build:
-      - amazon-linux-extras enable python3.8
-      - yum install -y python3.8 python3.8-devel
     build:
-      - yum update -y
-      - yum install -y gcc gcc-c++ make libgcc glibc pycairo
-      - pip3.8 install --upgrade pip
-      - pip3.8 install -r requirements.txt
+    # Update and install necessary packages including glibc and playwright dependencies
+    - yum install -y gcc gcc-c++ make libgcc glibc
+    - yum install -y pycairo
+    - pip install -r requirements.txt
 run:
   command: gunicorn --bind 0.0.0.0:8000 app:app --timeout 120
   network:
@@ -21,6 +18,5 @@ run:
     - name: MY_SECRET
       value-from: arn:aws:secretsmanager:us-east-1:590183960221:secret:prod/secrets-LCPvxt
 
-# Specify the Amazon Linux 2023 image
 image:
   name: public.ecr.aws/amazonlinux/amazonlinux:2023
