@@ -7,13 +7,11 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-import chromedriver_autoinstaller
 
 class Scraper:
     def __init__(self, logger, adblocker_path=None):
         self.logger = logger
-        self.adblocker_path = adblocker_path  # Path to the ad blocker extension
-        chromedriver_autoinstaller.install()  # Automatically install chromedriver
+
 
     def transform_url(self, original_url):
         # Extract the ID from the original URL
@@ -38,9 +36,6 @@ class Scraper:
         options.add_argument("--start-maximized")
         options.add_argument("--disable-gpu")
 
-        # Load the ad blocker extension if provided
-        if self.adblocker_path:
-            options.add_argument(f'--load-extension={self.adblocker_path}')
 
         service = Service()  # Using the installed geckodriver for Firefox
         browser = None
