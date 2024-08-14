@@ -17,6 +17,3 @@ run:
   secrets:
     - name: MY_SECRET
       value-from: arn:aws:secretsmanager:us-east-1:590183960221:secret:prod/secrets-LCPvxt
-
-image:
-  name: public.ecr.aws/amazonlinux/amazonlinux:2023

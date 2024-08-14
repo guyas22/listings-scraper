@@ -1,12 +1,19 @@
-import asyncio
-from playwright.async_api import async_playwright
-from playwright_stealth import stealth_async
 import base64
 import os
+import logging
+from selenium import webdriver
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+import chromedriver_autoinstaller
 
 class Scraper:
-    def __init__(self, logger):
+    def __init__(self, logger, adblocker_path=None):
         self.logger = logger
+        self.adblocker_path = adblocker_path  # Path to the ad blocker extension
+        chromedriver_autoinstaller.install()  # Automatically install chromedriver
 
     def transform_url(self, original_url):
         # Extract the ID from the original URL
@@ -25,31 +32,54 @@ class Scraper:
         return new_url
 
     async def take_full_page_screenshot(self, original_url, output_file='full_screenshot.png', headless=True):
+        options = Options()
+        if headless:
+            options.add_argument("--headless")
+        options.add_argument("--start-maximized")
+        options.add_argument("--disable-gpu")
+
+        # Load the ad blocker extension if provided
+        if self.adblocker_path:
+            options.add_argument(f'--load-extension={self.adblocker_path}')
+
+        service = Service()  # Using the installed geckodriver for Firefox
         browser = None
+
         try:
+            id_part = original_url.split('/')[-1]
             transformed_url = self.transform_url(original_url)
-            async with async_playwright() as p:
-                browser = await p.chromium.launch(headless=headless)
-                context = await browser.new_context(java_script_enabled=True)
-                page = await context.new_page()
+            browser = webdriver.Firefox(service=service, options=options)  # Using Firefox instead of Chrome
 
-                await page.goto(transformed_url)
-                current_url = page.url
-                if "ID" not in current_url:
-                    self.logger.warning(f"ID not found in URL: {current_url}, skipping...")
-                    return None
+            # Navigate to the transformed URL
+            browser.get(transformed_url)
 
-                await page.screenshot(path=output_file, full_page=True)
-                self.logger.info(f"Screenshot saved to {output_file}")
-                return self.encode_image(output_file)
+            # Wait until the page is fully loaded (DOM readyState is 'complete')
+            WebDriverWait(browser, 10).until(
+                lambda d: d.execute_script('return document.readyState') == 'complete'
+            )
+
+            current_url = browser.current_url
+
+            # Skipping logic: check if "ID" is not in the URL
+            if id_part not in current_url:
+                self.logger.warning(f"ID not found in URL: {current_url}, skipping...")
+                return None
+
+            # Take a full-page screenshot using Firefox's full-page screenshot capability
+            image_bytes = browser.get_full_page_screenshot_as_png()
+            with open(output_file, "wb") as file:
+                file.write(image_bytes)
+
+            self.logger.info(f"Screenshot saved to {output_file}")
+            return self.encode_image(output_file)
 
         except Exception as e:
             self.logger.error(f"An error occurred during screenshot capture: {e}")
-        
+            return None
+
         finally:
             if browser:
-                await browser.close()
-
+                browser.quit()
 
     def encode_image(self, image_path):
         try:
